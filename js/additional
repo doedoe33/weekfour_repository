@@ -1,0 +1,53 @@
+var lib = function () {};
+
+lib.prototype.myBookArray = new Array();
+
+
+
+lib.prototype.removeBookByTitle = function (title) {
+for (var i = 0; i < this.myBookArray.length; i++) {
+if (title == this.myBookArray[i].title) {
+this.myBookArray.splice(i, 1);
+return true;
+}
+}
+return false;
+};
+
+lib.prototype.removeBookByAuthor = function (authorName) {
+var isAuthorRemoved = false;
+for (var i = 0; i < this.myBookArray.length; i++) {
+if (authorName == this.myBookArray[i].author) {
+this.myBookArray.splice(i, 1);
+isAuthorRemoved = true;
+}
+}
+return isAuthorRemoved;
+};
+
+
+
+lib.prototype.getBookByTitle = function (title) {
+var aTitle = new Array();
+for (var i = 0; i < this.myBookArray.length; i++) {
+if (this.myBookArray[i].title.indexOf(title)>=0) {
+aTitle.push(this.myBookArray[i]);
+}
+}
+return aTitle;
+};
+
+lib.prototype.getRandomAuthorName = function() {
+return this.myBookArray[Math.floor(Math.random() * this.myBookArray.length)].author;
+};
+
+
+lib.prototype.getAuthors = function (){
+var aAuthors = new Array();
+for (var i = 0; i < this.myBookArray.length; i++){
+if ( aAuthors.indexOf(this.myBookArray[i].author)<0){
+aAuthors.push(this.myBookArray[i].author);
+}
+}
+return aAuthors;
+}'=;
